@@ -30,8 +30,9 @@ For now, install with
 to get the latest master. There are no named releases yet, and the
 package isn't yet on PyPI.
 
-Use
----
+
+Enabling a VAT-enabled pricing strategy that defers tax until checkout.
+-----------------------------------------------------------------------
 
 To use, you must
 
@@ -45,10 +46,9 @@ To use, you must
    VAT-free B2B transactions under the reverse charge system. If all
    your transactions are B2C, this last bit may be safely omitted.
 
--
 
-Enabling a VAT-enabled pricing strategy that defers tax assessment until checkout.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Add strategy
+~~~~~~~~~~~~
 
 Add ``oscar_vat_moss.partner.strategy.DeferredVATStrategy`` to your
 ``partner/strategy.py`` module, and update your ``Selector`` to use it
@@ -65,14 +65,6 @@ when appropriate:
             # Apply your strategy selection logic, where appropriate:
             return DeferredVATStrategy(request)
 
-If you only want one selector and you **always** want to apply
-``VATStrategy``, you may also simply use:
-
-.. code:: python
-
-    # partner/strategy.py
-
-    from oscar_vat_moss.partner.strategy import *
 
 Applying VAT on checkout
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,7 +79,7 @@ Add ``oscar_vat_moss.checkout.session.DeferredVATCheckoutSessionMixin`` to your
     from oscar_vat_moss.checkout.session import DeferredVATCheckoutSessionMixin
 
 Documentation
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 Additional documentation can be found at
 http://django-oscar-vat-moss.readthedocs.org/en/master/.
