@@ -37,7 +37,7 @@ To use, you must
 
 -  Enable a pricing ``Strategy`` that uses the ``DeferredTax`` tax mixin
 
--  Add a ``CheckoutSessionMixin`` to your checkout session, so taxes can
+-  Add a ``DeferredVATCheckoutSessionMixin`` to your checkout session, so taxes can
    be applied when the customer's shipping address is known
 
 -  Optionally extend your data model with a field accommodating your
@@ -45,10 +45,12 @@ To use, you must
    VAT-free B2B transactions under the reverse charge system. If all
    your transactions are B2C, this last bit may be safely omitted.
 
-Enabling a VAT-enabled pricing strategy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-
 
-Add ``oscar_vat_moss.partner.strategy.VATStrategy`` to your
+Enabling a VAT-enabled pricing strategy that defers tax assessment until checkout.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add ``oscar_vat_moss.partner.strategy.DeferredVATStrategy`` to your
 ``partner/strategy.py`` module, and update your ``Selector`` to use it
 when appropriate:
 
@@ -56,12 +58,12 @@ when appropriate:
 
     # partner/strategy.py
 
-    from oscar_vat_moss.partner.strategy import VATStrategy
+    from oscar_vat_moss.partner.strategy import DeferredVATStrategy
 
     class Selector(object):
         def strategy(self, request=None, user=None, **kwargs):
             # Apply your strategy selection logic, where appropriate:
-            return VATStrategy(request)
+            return DeferredVATStrategy(request)
 
 If you only want one selector and you **always** want to apply
 ``VATStrategy``, you may also simply use:
@@ -75,14 +77,14 @@ If you only want one selector and you **always** want to apply
 Applying VAT on checkout
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add ``oscar_vat_moss.checkout.session.CheckoutSessionMixin`` to your
+Add ``oscar_vat_moss.checkout.session.DeferredVATCheckoutSessionMixin`` to your
 ``checkout/session.py`` module:
 
 .. code:: python
 
     # checkout/session.py
 
-    from oscar_vat_moss.checkout.session import CheckoutSessionMixin
+    from oscar_vat_moss.checkout.session import DeferredVATCheckoutSessionMixin
 
 Documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~
