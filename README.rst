@@ -92,7 +92,7 @@ To use, you must
    your transactions are B2C, this last bit may be safely omitted.
 
 - Add the required configuration to your settings.py
-  VAT_MOSS_STORE_COUNTRY_CODE
+  VAT_MOSS_STORE_COUNTRY_CODE (The two-character country code: https://www.unc.edu/~rowlett/units/codes/country.htm)
   VAT_MOSS_STORE_POSTCODE
   VAT_MOSS_STORE_CITY
 
