@@ -37,7 +37,7 @@ class PerUserVATStrategyTest(TestCase):
         address.line4 = 'Vienna'
         address.postcode = '1010'
         address.phone_number = '+43 1 234 5678'
-        address.line1 = 'hastexo Professional Services GmbH'
+        address.organisation = 'hastexo Professional Services GmbH'
         address.vatin = ''
 
         request = Mock()
@@ -68,7 +68,7 @@ class PerUserVATStrategyTest(TestCase):
         address.line4 = 'Vienna'
         address.postcode = '1010'
         address.phone_number = '+43 1 234 5678'
-        address.line1 = 'hastexo Professional Services GmbH'
+        address.organisation = 'hastexo Professional Services GmbH'
         address.vatin = ''
 
         request = Mock()

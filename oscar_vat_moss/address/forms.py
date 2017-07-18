@@ -16,7 +16,7 @@ class UserAddressForm(CoreUserAddressForm):
         # input. Now we need to compare fields to each other.
 
         # Grab the interesting fields from the form
-        company = data.get('line1')
+        company = data.get('organisation')
         city = data.get('line4')
         country = data.get('country')
         if country:
@@ -37,7 +37,7 @@ class UserAddressForm(CoreUserAddressForm):
             try:
                 vat.lookup_vat_by_vatin(country_code, vatin, company)
             except vat.NonMatchingVATINException as n:
-                self.add_error('line1', str(n))
+                self.add_error('organisation', str(n))
                 self.add_error('vatin', str(n))
             except vat.CountryInvalidForVATINException as c:
                 self.add_error('country', str(c))

@@ -51,7 +51,7 @@ def lookup_vat_for_user(user):
 def lookup_vat_for_address(address):
     # Use getattr here so we can default to empty string for
     # non-existing fields.
-    company = getattr(address, 'line1', '')
+    company = getattr(address, 'organisation', '')
     city = getattr(address, 'line4', '')
     country = getattr(address, 'country', '')
     postcode = getattr(address, 'postcode', '')
