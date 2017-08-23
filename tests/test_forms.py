@@ -65,7 +65,7 @@ class UserAddressFormTest(TestCase):
             user=self.hansmueller,
             first_name="Hans",
             last_name="Müller",
-            oranisation="hastexo Professional Services GmbH",
+            organisation="hastexo Professional Services GmbH",
             line4="Wien",
             postcode="1010",
             country=self.at.iso_3166_1_a2,

@@ -131,15 +131,6 @@ def lookup_vat_by_vatin(country_code, vatin, company_name):
         raise CountryInvalidForVATINException(vatin,
                                               country_code)
 
-    # Does the VATIN match the company name we've been given?
-    #
-    # This is effectively a case-insensitive startswith(), but the
-    # regex should really be configurable.
-    regex = "^%s" % vatin_company
-    if not re.search(regex, company_name, re.I):
-        raise NonMatchingVATINException(vatin,
-                                        company_name)
-
     # We have a verified VATIN and it matches the company
     # name. Is the country the same as the store country?
     if country_code == settings.VAT_MOSS_STORE_COUNTRY_CODE:
