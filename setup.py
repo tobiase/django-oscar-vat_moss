@@ -19,7 +19,9 @@ setup(
     include_package_data=True,
     install_requires=[
         'requests>=1.0',
-        'django-localflavor'],
+        'django-localflavor',
+        'django-phonenumber-field',
+        'phonenumbers'],
     extras_require={
         'oscar': ["django-oscar>=1.1"]
     },
