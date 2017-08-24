@@ -1,6 +1,7 @@
 vat_moss
 django-phonenumber-field==1.3.0
 phonenumbers==8.4.3
+vat_moss
 
 # Testing
 mock
