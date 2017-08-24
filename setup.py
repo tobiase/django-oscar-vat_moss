@@ -21,9 +21,8 @@ setup(
         'requests>=1.0',
         'django-localflavor',
         'django-phonenumber-field',
-        'phonenumbers'
-        'vat_moss',
-        ],
+        'phonenumbers',
+        'vat_moss'],
     extras_require={
         'oscar': ["django-oscar>=1.1"]
     },
